@@ -19,13 +19,17 @@ import javax.swing.JTree;
 import javax.swing.event.ChangeListener;
 import javax.swing.event.ChangeEvent;
 import javax.swing.JLabel;
+import javax.swing.JTextPane;
+import javax.swing.JTextField;
 
 public class MainWindow {
-
+	boolean filterByAge = false; 
 	boolean filterByType=false;
 	boolean filterByFlavor=false; 
 	String flavor ="?"; 
 	String type="?"; 
+	int startAge = 0;
+	int endAge=18; 
 	
 	private JFrame frame;
 
@@ -57,7 +61,7 @@ public class MainWindow {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 380, 230);
+		frame.setBounds(100, 100, 597, 529);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -81,9 +85,18 @@ public class MainWindow {
 		        {
 		        	stats = new SalesGraphRegular();    
 		        }
-		     
+		        
 		        SqlCon connect = new SqlCon(); 
-		        connect.myCon(stats); 
+		        
+		        if(!filterByAge)
+		        {
+		        	connect.myCon(stats);
+		        }
+		        else
+		        {
+		        	connect.myConFilterAge(stats, startAge, endAge);
+		        }
+		        
 		        stats.filter();
 		        
 		        
@@ -106,7 +119,7 @@ public class MainWindow {
 		        frame.setVisible( true );
 			}
 		});
-		btnNewButton.setBounds(125, 122, 97, 25);
+		btnNewButton.setBounds(234, 379, 97, 25);
 		frame.getContentPane().add(btnNewButton);
 		ButtonGroup bgHow = new ButtonGroup();
 		
@@ -118,7 +131,7 @@ public class MainWindow {
 					filterByFlavor=false; 
 				}
 			});
-			rdbtnNewRadioButton.setBounds(70, 2, 57, 25);
+			rdbtnNewRadioButton.setBounds(69, 280, 57, 25);
 			frame.getContentPane().add(rdbtnNewRadioButton);
 		
 			JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("Flavor");
@@ -128,7 +141,7 @@ public class MainWindow {
 					filterByFlavor=true; 
 				}
 			});
-			rdbtnNewRadioButton_1.setBounds(125, 2, 63, 25);
+			rdbtnNewRadioButton_1.setBounds(129, 280, 63, 25);
 			frame.getContentPane().add(rdbtnNewRadioButton_1);
 		
 			JRadioButton rdbtnNewRadioButton_2 = new JRadioButton("None");
@@ -139,7 +152,7 @@ public class MainWindow {
 				}
 			});
 			rdbtnNewRadioButton_2.setSelected(true);
-			rdbtnNewRadioButton_2.setBounds(185, 2, 127, 25);
+			rdbtnNewRadioButton_2.setBounds(189, 280, 127, 25);
 			frame.getContentPane().add(rdbtnNewRadioButton_2);
 		
 		bgHow.add(rdbtnNewRadioButton);
@@ -147,11 +160,11 @@ public class MainWindow {
 		bgHow.add(rdbtnNewRadioButton_2);
 			
 			JLabel lblNewLabel = new JLabel("Filter by:");
-			lblNewLabel.setBounds(8, 0, 108, 29);
+			lblNewLabel.setBounds(12, 278, 108, 29);
 			frame.getContentPane().add(lblNewLabel);
 			
 			JLabel lblNewLabel_1 = new JLabel("Which type: ");
-			lblNewLabel_1.setBounds(8, 36, 86, 16);
+			lblNewLabel_1.setBounds(12, 315, 86, 16);
 			frame.getContentPane().add(lblNewLabel_1);
 			
 			JRadioButton rdbtnNewRadioButton_3 = new JRadioButton("Drink");
@@ -160,7 +173,7 @@ public class MainWindow {
 					type ="Drink"; 
 				}
 			});
-			rdbtnNewRadioButton_3.setBounds(80, 32, 57, 25);
+			rdbtnNewRadioButton_3.setBounds(84, 311, 57, 25);
 			frame.getContentPane().add(rdbtnNewRadioButton_3);
 			
 			JRadioButton rdbtnNewRadioButton_4 = new JRadioButton("Food");
@@ -169,7 +182,7 @@ public class MainWindow {
 					type ="Food"; 
 				}
 			});
-			rdbtnNewRadioButton_4.setBounds(135, 32, 127, 25);
+			rdbtnNewRadioButton_4.setBounds(139, 311, 127, 25);
 			frame.getContentPane().add(rdbtnNewRadioButton_4);
 			
 			ButtonGroup bgType = new ButtonGroup();
@@ -178,7 +191,7 @@ public class MainWindow {
 		bgType.add(rdbtnNewRadioButton_4);
 			
 			JLabel lblNewLabel_2 = new JLabel("Which flavor:");
-			lblNewLabel_2.setBounds(8, 65, 76, 16);
+			lblNewLabel_2.setBounds(12, 344, 76, 16);
 			frame.getContentPane().add(lblNewLabel_2);
 			
 			JRadioButton rdbtnNewRadioButton_5 = new JRadioButton("Sweet");
@@ -187,7 +200,7 @@ public class MainWindow {
 					flavor ="Sweet"; 
 				}
 			});
-			rdbtnNewRadioButton_5.setBounds(90, 61, 65, 25);
+			rdbtnNewRadioButton_5.setBounds(94, 340, 65, 25);
 			frame.getContentPane().add(rdbtnNewRadioButton_5);
 			
 			JRadioButton rdbtnNewRadioButton_6 = new JRadioButton("Salty");
@@ -196,7 +209,7 @@ public class MainWindow {
 					flavor ="Salty"; 
 				}
 			});
-			rdbtnNewRadioButton_6.setBounds(155, 62, 57, 25);
+			rdbtnNewRadioButton_6.setBounds(159, 341, 57, 25);
 			frame.getContentPane().add(rdbtnNewRadioButton_6);
 			
 			JRadioButton rdbtnNewRadioButton_7 = new JRadioButton("Spicy");
@@ -205,7 +218,7 @@ public class MainWindow {
 					flavor ="Spicy"; 
 				}
 			});
-			rdbtnNewRadioButton_7.setBounds(210, 61, 63, 25);
+			rdbtnNewRadioButton_7.setBounds(214, 340, 63, 25);
 			frame.getContentPane().add(rdbtnNewRadioButton_7);
 			
 			JRadioButton rdbtnNewRadioButton_8 = new JRadioButton("Sour");
@@ -214,7 +227,7 @@ public class MainWindow {
 					flavor="Sour"; 
 				}
 			});
-			rdbtnNewRadioButton_8.setBounds(275, 61, 127, 25);
+			rdbtnNewRadioButton_8.setBounds(279, 340, 127, 25);
 			frame.getContentPane().add(rdbtnNewRadioButton_8);
 		
 		ButtonGroup bgFlavor = new ButtonGroup();
@@ -223,5 +236,108 @@ public class MainWindow {
 		bgFlavor.add(rdbtnNewRadioButton_7);
 		bgFlavor.add(rdbtnNewRadioButton_8);
 		
+		JLabel lblNewLabel_3 = new JLabel("Product filter:");
+		lblNewLabel_3.setBounds(12, 260, 180, 16);
+		frame.getContentPane().add(lblNewLabel_3);
+		
+		JLabel lblNewLabel_4 = new JLabel("Customer filter:");
+		lblNewLabel_4.setBounds(0, 29, 147, 16);
+		frame.getContentPane().add(lblNewLabel_4);
+		
+		JRadioButton rdbtnNewRadioButton_9 = new JRadioButton("Yes");
+		rdbtnNewRadioButton_9.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				filterByAge = true; 
+			}
+		});
+		rdbtnNewRadioButton_9.setBounds(84, 54, 57, 25);
+		frame.getContentPane().add(rdbtnNewRadioButton_9);
+		
+		JRadioButton rdbtnNewRadioButton_9_1 = new JRadioButton("No");
+		rdbtnNewRadioButton_9_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				filterByAge = false; 
+			}
+		});
+		rdbtnNewRadioButton_9_1.setSelected(true);
+		rdbtnNewRadioButton_9_1.setBounds(139, 54, 57, 25);
+		frame.getContentPane().add(rdbtnNewRadioButton_9_1);
+		
+		
+		ButtonGroup AgeFilterDecider = new ButtonGroup(); 
+		AgeFilterDecider.add( rdbtnNewRadioButton_9); 
+		AgeFilterDecider.add( rdbtnNewRadioButton_9_1); 
+		
+		
+		
+		
+		JLabel lblNewLabel_5 = new JLabel("Age Filter:");
+		lblNewLabel_5.setBounds(10, 58, 73, 21);
+		frame.getContentPane().add(lblNewLabel_5);
+		
+	
+		
+		JLabel lblNewLabel_6 = new JLabel("Age grouping:");
+		lblNewLabel_6.setBounds(6, 80, 114, 25);
+		frame.getContentPane().add(lblNewLabel_6);
+		
+		JRadioButton rdbtnNewRadioButton_10 = new JRadioButton("18 and under");
+		rdbtnNewRadioButton_10.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				startAge = 0;
+				endAge = 18; 
+				
+			}
+		});
+		rdbtnNewRadioButton_10.setBounds(0, 109, 127, 25);
+		frame.getContentPane().add(rdbtnNewRadioButton_10);
+		
+		JRadioButton rdbtnNewRadioButton_11 = new JRadioButton("18 - 30");
+		rdbtnNewRadioButton_11.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				startAge = 18;
+				endAge = 30;
+			}
+		});
+		rdbtnNewRadioButton_11.setBounds(-1, 138, 127, 25);
+		frame.getContentPane().add(rdbtnNewRadioButton_11);
+		
+		JRadioButton rdbtnNewRadioButton_11_1 = new JRadioButton("30 - 45");
+		rdbtnNewRadioButton_11_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				startAge = 30;
+				endAge = 45;
+			}
+		});
+		rdbtnNewRadioButton_11_1.setBounds(0, 172, 127, 25);
+		frame.getContentPane().add(rdbtnNewRadioButton_11_1);
+		
+		JRadioButton rdbtnNewRadioButton_11_2 = new JRadioButton("45 - 65");
+		rdbtnNewRadioButton_11_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				startAge = 45;
+				endAge = 65;
+			}
+			
+		});
+		rdbtnNewRadioButton_11_2.setBounds(0, 202, 127, 25);
+		frame.getContentPane().add(rdbtnNewRadioButton_11_2);
+		
+		JRadioButton rdbtnNewRadioButton_11_3 = new JRadioButton("65 and over");
+		rdbtnNewRadioButton_11_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				startAge = 65;
+				endAge = 999;
+			}
+		});
+		rdbtnNewRadioButton_11_3.setBounds(-1, 232, 127, 25);
+		frame.getContentPane().add(rdbtnNewRadioButton_11_3);
+		
+		ButtonGroup AgeRange = new ButtonGroup(); 
+		AgeRange.add(rdbtnNewRadioButton_10);
+		AgeRange.add(rdbtnNewRadioButton_11);
+		AgeRange.add(rdbtnNewRadioButton_11_1);
+		AgeRange.add(rdbtnNewRadioButton_11_2);
+		AgeRange.add(rdbtnNewRadioButton_11_3);
 	}
 }
