@@ -350,5 +350,16 @@ public class MainWindow {
 		});
 		btnNewButton_1.setBounds(372, 39, 162, 25);
 		frame.getContentPane().add(btnNewButton_1);
+		
+		JButton btnNewButton_2 = new JButton("Get Product Data");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ItemDataWindow itemWin = new ItemDataWindow(); 
+				itemWin.setVisible(true);
+				itemWin.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+			}
+		});
+		btnNewButton_2.setBounds(372, 80, 162, 25);
+		frame.getContentPane().add(btnNewButton_2);
 	}
 }
