@@ -108,5 +108,34 @@ public class SqlCon
 		catch(Exception e) {throw e; }
 	}
 	
+	public void myConInsertProduct(String name,String flavor,String type) throws Exception
+	{
+		try
+		{
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection con=DriverManager.getConnection(
+		"jdbc:mysql://localhost:3306/world?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root","root");
+		Statement stmt = con.createStatement();
+		stmt.executeUpdate("insert into snackitems(Name,Flavor,Type) values(\""+name+"\",\""+flavor+"\",\""+type+"\")");
+		
+		con.close();
+		
+		}
+		catch(Exception e) {throw e; }
+	}
+	
+	public void myConInsertPurchase(int id,String Snackname) throws Exception 
+	{
+		try
+		{
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection con=DriverManager.getConnection(
+			"jdbc:mysql://localhost:3306/world?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root","root");
+			Statement stmt = con.createStatement();
+			stmt.executeUpdate("insert into snackbought values ("+id+",\""+Snackname+"\")");
+			
+		}
+		catch(Exception e) {throw e;}
+	}
 	
 }

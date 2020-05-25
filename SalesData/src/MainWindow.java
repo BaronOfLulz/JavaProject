@@ -373,5 +373,16 @@ public class MainWindow {
 		});
 		btnNewButton_3.setBounds(372, 67, 162, 25);
 		frame.getContentPane().add(btnNewButton_3);
+		
+		JButton btnNewButton_4 = new JButton("Add Products");
+		btnNewButton_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AddProductWindow addPrudWin = new AddProductWindow(); 
+				addPrudWin.setVisible(true);
+				addPrudWin.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+			}
+		});
+		btnNewButton_4.setBounds(372, 147, 162, 25);
+		frame.getContentPane().add(btnNewButton_4);
 	}
 }
