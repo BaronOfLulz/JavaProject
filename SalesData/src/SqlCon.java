@@ -91,4 +91,22 @@ public class SqlCon
 		catch(Exception e) {System.out.println(e);}
 	}
 	
+	
+	public void myConInsertCustomer(int id,String firstname,String lastname, int age) throws Exception
+	{
+		try
+		{
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection con=DriverManager.getConnection(
+		"jdbc:mysql://localhost:3306/world?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root","root");
+		Statement stmt = con.createStatement();
+		stmt.executeUpdate("insert into snackbuyer(Id,FirstName,LastName,Age) Values("+Integer.toString(id)+",\""+firstname +"\",\""+lastname+"\","+Integer.toString(age)+");");
+		
+		con.close();
+		
+		}
+		catch(Exception e) {throw e; }
+	}
+	
+	
 }

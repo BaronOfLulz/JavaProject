@@ -348,7 +348,7 @@ public class MainWindow {
 				cusWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 			}
 		});
-		btnNewButton_1.setBounds(372, 39, 162, 25);
+		btnNewButton_1.setBounds(372, 29, 162, 25);
 		frame.getContentPane().add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Get Product Data");
@@ -359,7 +359,19 @@ public class MainWindow {
 				itemWin.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 			}
 		});
-		btnNewButton_2.setBounds(372, 80, 162, 25);
+		btnNewButton_2.setBounds(372, 109, 162, 25);
 		frame.getContentPane().add(btnNewButton_2);
+		
+		JButton btnNewButton_3 = new JButton("Add Customers");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AddCustomerWindow addCusWin = new AddCustomerWindow();
+				addCusWin.setVisible(true);
+				addCusWin.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+			}
+			
+		});
+		btnNewButton_3.setBounds(372, 67, 162, 25);
+		frame.getContentPane().add(btnNewButton_3);
 	}
 }

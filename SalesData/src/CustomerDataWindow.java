@@ -1,11 +1,15 @@
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
-
+import com.jgoodies.forms.layout.FormLayout;
+import com.jgoodies.forms.layout.ColumnSpec;
+import com.jgoodies.forms.layout.RowSpec;
+import java.awt.GridLayout;
 import javax.swing.JButton;
-
+import net.miginfocom.swing.MigLayout;
 import java.awt.event.ActionListener;
 import java.util.Stack;
 import java.awt.event.ActionEvent;
@@ -76,12 +80,12 @@ public class CustomerDataWindow extends JFrame {
 		
 		txtName = new JTextField();
 		txtName.setText(customers.get(i).getFirstname());
-		txtName.setBounds(112, 82, 116, 22);
+		txtName.setBounds(101, 83, 116, 22);
 		contentPane.add(txtName);
 		txtName.setColumns(10);
 		
 		JLabel lblNewLabel_1 = new JLabel("Lastname:");
-		lblNewLabel_1.setBounds(12, 120, 77, 26);
+		lblNewLabel_1.setBounds(12, 120, 60, 26);
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Age:");
@@ -94,19 +98,19 @@ public class CustomerDataWindow extends JFrame {
 		
 		txtName2 = new JTextField();
 		txtName2.setText(customers.get(i).getLastname());
-		txtName2.setBounds(112, 121, 116, 22);
+		txtName2.setBounds(101, 122, 116, 22);
 		contentPane.add(txtName2);
 		txtName2.setColumns(10);
 		
 		txtName3 = new JTextField();
 		txtName3.setText(Integer.toString(customers.get(i).getAge()));
-		txtName3.setBounds(112, 161, 116, 22);
+		txtName3.setBounds(101, 162, 116, 22);
 		contentPane.add(txtName3);
 		txtName3.setColumns(10);
 		
 		txtName4 = new JTextField();
 		txtName4.setText(Integer.toString(customers.get(i).getId()));
-		txtName4.setBounds(112, 199, 116, 22);
+		txtName4.setBounds(101, 200, 116, 22);
 		contentPane.add(txtName4);
 		txtName4.setColumns(10);
 	}
