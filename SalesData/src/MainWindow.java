@@ -339,5 +339,16 @@ public class MainWindow {
 		AgeRange.add(rdbtnNewRadioButton_11_1);
 		AgeRange.add(rdbtnNewRadioButton_11_2);
 		AgeRange.add(rdbtnNewRadioButton_11_3);
+		
+		JButton btnNewButton_1 = new JButton("Get Customer Data");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CustomerDataWindow cusWindow = new CustomerDataWindow(); 
+				cusWindow.setVisible(true);
+				cusWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+			}
+		});
+		btnNewButton_1.setBounds(372, 39, 162, 25);
+		frame.getContentPane().add(btnNewButton_1);
 	}
 }

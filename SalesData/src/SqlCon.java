@@ -1,4 +1,5 @@
-import java.sql.*; 
+import java.sql.*;
+import java.util.Stack; 
 
 
 public class SqlCon 
@@ -50,4 +51,25 @@ public class SqlCon
 		catch(Exception e) {System.out.println(e);}
 		
 	}
+	
+	
+	public void myConCustomerDataNoAge(Stack<Customer> customers) 
+	{
+		try
+		{
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection con=DriverManager.getConnection(
+		"jdbc:mysql://localhost:3306/world?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root","root");
+		Statement stmt = con.createStatement();
+		ResultSet rs=stmt.executeQuery("select * from snackbuyer;");
+		while(rs.next())
+		{
+		customers.push(new Customer(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getInt(4)));
+		}
+		con.close();
+		
+		}
+		catch(Exception e) {System.out.println(e);}
+	}
+	
 }
