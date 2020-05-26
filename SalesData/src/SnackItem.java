@@ -23,4 +23,7 @@ String type;
 		this.type = type; 
 	}
 	
+	String getName() {return this.name;}
+	String getFlavor() {return this.flavor;}
+	String getType() {return this.type;}
 }

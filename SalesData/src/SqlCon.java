@@ -123,7 +123,43 @@ public class SqlCon
 		}
 		catch(Exception e) {throw e; }
 	}
+	public void myConGetProductNames(Stack<String> items)
+	{
+		try
+		{
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection con=DriverManager.getConnection(
+		"jdbc:mysql://localhost:3306/world?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root","root");
+		Statement stmt = con.createStatement();
+		ResultSet rs=stmt.executeQuery("select name from snackitems;");
+		while(rs.next())
+		{
+		items.push(rs.getString(1));
+		}
+		con.close();
+		
+		}
+		catch(Exception e) {System.out.println(e);}
+	}
 	
+	public void myConGetCustomerId(Stack<Integer> ids)
+	{
+		try
+		{
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection con=DriverManager.getConnection(
+		"jdbc:mysql://localhost:3306/world?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root","root");
+		Statement stmt = con.createStatement();
+		ResultSet rs=stmt.executeQuery("select id from snackbuyer;");
+		while(rs.next())
+		{
+		ids.push(Integer.parseInt(rs.getString(1)));
+		}
+		con.close();
+		
+		}
+		catch(Exception e) {System.out.println(e);}
+	}
 	public void myConInsertPurchase(int id,String Snackname) throws Exception 
 	{
 		try

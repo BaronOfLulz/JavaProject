@@ -384,5 +384,17 @@ public class MainWindow {
 		});
 		btnNewButton_4.setBounds(372, 147, 162, 25);
 		frame.getContentPane().add(btnNewButton_4);
+		
+		JButton btnNewButton_5 = new JButton("Add Purchases");
+		btnNewButton_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AddPurchaseWindow addPurWin = new AddPurchaseWindow(); 
+				addPurWin.setVisible(true);
+				addPurWin.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				
+			}
+		});
+		btnNewButton_5.setBounds(372, 185, 162, 25);
+		frame.getContentPane().add(btnNewButton_5);
 	}
 }
