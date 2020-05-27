@@ -30,7 +30,7 @@ public class ItemDataWindow extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		Stack<SnackItem> items = new Stack<SnackItem>(); 
-		SqlCon con = new SqlCon();
+		SqlCon con = SqlCon.getConnector();
 		con.myConProductNoFilter(items);
 		
 		

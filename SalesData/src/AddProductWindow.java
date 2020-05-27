@@ -91,7 +91,7 @@ public class AddProductWindow extends JFrame {
 		JButton btnNewButton = new JButton("Add Item ");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				SqlCon conn = new SqlCon(); 
+				SqlCon conn = SqlCon.getConnector(); 
 				try 
 				{
 					if(textField.getText().length() < 1)

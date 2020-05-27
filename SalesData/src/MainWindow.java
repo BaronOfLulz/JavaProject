@@ -86,7 +86,7 @@ public class MainWindow {
 		        	stats = new SalesGraphRegular();    
 		        }
 		        
-		        SqlCon connect = new SqlCon(); 
+		        SqlCon connect = SqlCon.getConnector(); 
 		        
 		        if(!filterByAge)
 		        {

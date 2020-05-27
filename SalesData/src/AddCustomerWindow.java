@@ -1,3 +1,5 @@
+/** wtf is going on with github???*/ 
+
 
 import javax.swing.JOptionPane;
 import javax.swing.JFrame;
@@ -110,7 +112,7 @@ public class AddCustomerWindow extends JFrame {
 					 throw new Exception("none of the fields can be empty");
 				 }
 				 
-				 SqlCon conn = new SqlCon(); 
+				 SqlCon conn = SqlCon.getConnector(); 
 				 conn.myConInsertCustomer(Integer.parseInt(txtfield.getText()),  txtfield_1.getText(),txtLastname.getText(), Integer.parseInt(textField_3.getText()));
 			
 			}

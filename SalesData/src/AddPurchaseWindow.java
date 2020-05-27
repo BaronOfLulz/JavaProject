@@ -26,7 +26,7 @@ public class AddPurchaseWindow extends JFrame {
 	public AddPurchaseWindow() {
 		Stack<Integer> customerIds = new Stack<Integer>(); 
 		Stack<String> productNames = new Stack<String>();
-		SqlCon conn = new SqlCon(); 
+		SqlCon conn = SqlCon.getConnector(); 
 		conn.myConGetProductNames(productNames);
 		conn.myConGetCustomerId(customerIds);
 		

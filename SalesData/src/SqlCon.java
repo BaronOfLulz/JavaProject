@@ -5,6 +5,25 @@ import java.util.Stack;
 public class SqlCon 
 {
 	
+	private SqlCon()
+	{
+		
+	}
+	
+	
+	static SqlCon instance = null; 
+	
+	static public SqlCon getConnector()
+	{
+		if(instance == null)
+		{
+			instance = new SqlCon();
+		}
+		
+		return instance; 
+		
+	}
+	
 	public void myCon(SalesGraph graph) 
 	{
 		try

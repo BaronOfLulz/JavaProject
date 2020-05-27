@@ -1,5 +1,3 @@
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -37,7 +35,7 @@ public class CustomerDataWindow extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		Stack<Customer> customers = new Stack<Customer>(); 
-		SqlCon con = new SqlCon();
+		SqlCon con = SqlCon.getConnector();
 		con.myConCustomerDataNoAge(customers);
 		
 		
