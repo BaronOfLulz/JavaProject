@@ -32,11 +32,14 @@ import java.util.Stack;
 		}
 
 		
-		public void popItem(SnackItem item,Integer sale)
+		public void popItem()
 		{
-		item = items.pop();
-		sale = sales.pop();	
+		 items.pop();
+		 sales.pop();	
 		}
+		public SnackItem getTopItem() {return items.peek();}
+		public int getTopSale() {return sales.peek();}
+		
 		public int itemsAmount() {return items.size();}
 			
 		public abstract void filter(); 

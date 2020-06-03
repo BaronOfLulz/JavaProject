@@ -104,8 +104,9 @@ public class MainWindow {
 		        Integer sale;
 		        while(stats.itemsAmount()>0)
 		        {
-		        	item=stats.items.pop();
-		        	sale =stats.sales.pop();
+		        	item=stats.getTopItem();
+		        	sale =stats.getTopSale();
+		        	stats.popItem();
 		        	panel.addHistogramColumn(item.name +"\n sales",sale,Color.BLUE);
 		        }
 		      
