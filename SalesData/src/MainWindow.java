@@ -75,15 +75,15 @@ public class MainWindow {
 		        
 		        if(filterByType)
 		        {
-		        	stats = new SalesGraphFilterType(type);
+		        	stats = SalesGraphCreator.getSalesGraph(SalesGraphType.TYPE,type,flavor);
 		        }
 		        else if(filterByFlavor)
 		        {
-		        	stats = new SalesGraphFilterFlavor(flavor);	
+		        	stats =  SalesGraphCreator.getSalesGraph(SalesGraphType.FLAVOR,type,flavor);	
 		        }
 		        else
 		        {
-		        	stats = new SalesGraphRegular();    
+		        	stats =  SalesGraphCreator.getSalesGraph(SalesGraphType.REGULAR,type,flavor);    
 		        }
 		        
 		        SqlCon connect = SqlCon.getConnector(); 

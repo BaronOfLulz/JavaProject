@@ -10,50 +10,50 @@ public class HistogramPanel extends JPanel
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private int histogramHeight =200;
-    private int barWidth = 50;
-    private int barGap = 10;
+	private int histogramHeight =250;
+    private int barWidth = 25;
+    private int barGap = 15;
 
-    private JPanel barPanel;
+    private JPanel amoodaPanel;
     private JPanel labelPanel;
 
-    private List<Bar> bars = new ArrayList<Bar>();
+    private List<Amooda> amoodot = new ArrayList<Amooda>();
 
     public HistogramPanel()
     {
         setBorder( new EmptyBorder(10, 10, 10, 10) );
         setLayout( new BorderLayout() );
 
-        barPanel = new JPanel( new GridLayout(1, 0, barGap, 0) );
+        amoodaPanel = new JPanel( new GridLayout(1, 0, barGap, 0) );
         Border outer = new MatteBorder(1, 1, 1, 1, Color.BLACK);
         Border inner = new EmptyBorder(10, 10, 0, 10);
         Border compound = new CompoundBorder(outer, inner);
-        barPanel.setBorder( compound );
+        amoodaPanel.setBorder( compound );
 
         labelPanel = new JPanel( new GridLayout(1, 0, barGap, 0) );
         labelPanel.setBorder( new EmptyBorder(5, 10, 0, 10) );
 
-        add(barPanel, BorderLayout.CENTER);
+        add(amoodaPanel, BorderLayout.CENTER);
         add(labelPanel, BorderLayout.PAGE_END);
     }
 
     public void addHistogramColumn(String label, int value, Color color)
     {
-        Bar bar = new Bar(label, value, color);
-        bars.add( bar );
+        Amooda bar = new Amooda(label, value, color);
+        amoodot.add( bar );
     }
 
     public void layoutHistogram()
     {
-        barPanel.removeAll();
+        amoodaPanel.removeAll();
         labelPanel.removeAll();
 
         int maxValue = 0;
 
-        for (Bar bar: bars)
+        for (Amooda bar: amoodot)
             maxValue = Math.max(maxValue, bar.getValue());
 
-        for (Bar bar: bars)
+        for (Amooda bar: amoodot)
         {
             JLabel label = new JLabel(bar.getValue() + "");
             label.setHorizontalTextPosition(JLabel.CENTER);
@@ -63,7 +63,7 @@ public class HistogramPanel extends JPanel
             int barHeight = (bar.getValue() * histogramHeight) / maxValue;
             Icon icon = new ColorIcon(bar.getColor(), barWidth, barHeight);
             label.setIcon( icon );
-            barPanel.add( label );
+            amoodaPanel.add( label );
 
             JLabel barLabel = new JLabel( bar.getLabel() );
             barLabel.setHorizontalAlignment(JLabel.CENTER);
@@ -71,13 +71,13 @@ public class HistogramPanel extends JPanel
         }
     }
 
-    private class Bar
+    private class Amooda
     {
         private String label;
         private int value;
         private Color color;
 
-        public Bar(String label, int value, Color color)
+        public Amooda(String label, int value, Color color)
         {
             this.label = label;
             this.value = value;
