@@ -7,7 +7,7 @@ class Testcase {
 
 	@Test
 	void test() {
-		
+		int arrSales[] = {2,4,4,111};
 		SalesGraph stats = new SalesGraphFilterFlavor("A"); 
 		stats.addItem(new SnackItem("A","A","A"),new Integer(2));
 		stats.addItem(new SnackItem("B","A","A"),new Integer(4));
