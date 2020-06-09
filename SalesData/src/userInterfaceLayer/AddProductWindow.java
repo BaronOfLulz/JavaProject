@@ -1,3 +1,4 @@
+package userInterfaceLayer;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -8,6 +9,9 @@ import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionListener;
+
+import dataLayer.SqlCon;
+
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
@@ -16,7 +20,8 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-
+import dataLayer.*;
+import logicLayer.*;
 
 
 

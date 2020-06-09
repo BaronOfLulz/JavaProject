@@ -1,3 +1,4 @@
+package userInterfaceLayer;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -5,6 +6,10 @@ import javax.swing.border.EmptyBorder;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.RowSpec;
+
+import dataLayer.SqlCon;
+import logicLayer.Customer;
+
 import java.awt.GridLayout;
 import javax.swing.JButton;
 import net.miginfocom.swing.MigLayout;
@@ -13,7 +18,8 @@ import java.util.Stack;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
-
+import dataLayer.*;
+import logicLayer.*;
 public class CustomerDataWindow extends JFrame {
 
 	private JPanel contentPane;

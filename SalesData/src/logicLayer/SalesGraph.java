@@ -1,3 +1,4 @@
+package logicLayer;
 import java.util.Stack; 
 
 	
@@ -18,7 +19,7 @@ import java.util.Stack;
 	public Stack<SnackItem> items; 
 	public Stack<Integer> sales; 
 	
-		SalesGraph() 
+	public	SalesGraph() 
 		{
 		this.items = new Stack<SnackItem>(); 
 		this.sales = new Stack<Integer>(); 

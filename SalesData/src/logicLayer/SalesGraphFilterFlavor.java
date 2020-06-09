@@ -1,10 +1,11 @@
+package logicLayer;
 
 public class SalesGraphFilterFlavor extends SalesGraph implements FilterFlavor
 {
 String flavor; 
 
 
-SalesGraphFilterFlavor(String flavor ) 
+public SalesGraphFilterFlavor(String flavor ) 
 {
 	super(); 
 	this.flavor =flavor; 

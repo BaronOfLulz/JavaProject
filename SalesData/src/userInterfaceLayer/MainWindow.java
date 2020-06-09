@@ -1,3 +1,4 @@
+package userInterfaceLayer;
 import java.awt.Color;
 import java.awt.EventQueue;
 
@@ -17,6 +18,13 @@ import javax.swing.JRadioButtonMenuItem;
 import javax.swing.JRadioButton;
 import javax.swing.JTree;
 import javax.swing.event.ChangeListener;
+
+import dataLayer.SqlCon;
+import logicLayer.SalesGraph;
+import logicLayer.SalesGraphCreator;
+import logicLayer.SalesGraphType;
+import logicLayer.SnackItem;
+
 import javax.swing.event.ChangeEvent;
 import javax.swing.JLabel;
 import javax.swing.JTextPane;
@@ -107,7 +115,7 @@ public class MainWindow {
 		        	item=stats.getTopItem();
 		        	sale =stats.getTopSale();
 		        	stats.popItem();
-		        	panel.addHistogramColumn(item.name +"\n sales",sale,Color.BLUE);
+		        	panel.addHistogramColumn(item.getName() +"\n sales",sale,Color.BLUE);
 		        }
 		      
 		        panel.layoutHistogram();
@@ -273,13 +281,13 @@ public class MainWindow {
 		
 		
 		JLabel lblNewLabel_5 = new JLabel("Age Filter:");
-		lblNewLabel_5.setBounds(10, 58, 73, 21);
+		lblNewLabel_5.setBounds(10, 56, 73, 21);
 		frame.getContentPane().add(lblNewLabel_5);
 		
 	
 		
 		JLabel lblNewLabel_6 = new JLabel("Age grouping:");
-		lblNewLabel_6.setBounds(6, 80, 114, 25);
+		lblNewLabel_6.setBounds(6, 75, 114, 25);
 		frame.getContentPane().add(lblNewLabel_6);
 		
 		JRadioButton rdbtnNewRadioButton_10 = new JRadioButton("18 and under");

@@ -1,3 +1,4 @@
+package logicLayer;
 /**
  * 
  */
@@ -11,19 +12,19 @@ public class SnackItem
 String name;
 String flavor; 
 String type;
-    SnackItem()
+  public  SnackItem()
     {
     	this.name = this.flavor = this.type ="?"; 
     }
 
-	SnackItem(String name, String flavor, String type)
+ public	SnackItem(String name, String flavor, String type)
 	{
 		this.name = name;
 		this.flavor = flavor;
 		this.type = type; 
 	}
 	
-	String getName() {return this.name;}
-	String getFlavor() {return this.flavor;}
-	String getType() {return this.type;}
+ public	String getName() {return this.name;}
+ public	String getFlavor() {return this.flavor;}
+ public	String getType() {return this.type;}
 }

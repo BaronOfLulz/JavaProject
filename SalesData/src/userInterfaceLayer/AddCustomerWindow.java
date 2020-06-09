@@ -1,3 +1,4 @@
+package userInterfaceLayer;
 /** wtf is going on with github???*/ 
 
 
@@ -6,12 +7,15 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import dataLayer.SqlCon;
+
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-
+import dataLayer.*;
+import logicLayer.*;
 public class AddCustomerWindow extends JFrame {
 
 	private JPanel contentPane;
@@ -32,7 +36,7 @@ public class AddCustomerWindow extends JFrame {
 		
 		txtfield = new JTextField();
 		txtfield.setText("0");
-		txtfield.setBounds(87, 45, 100, 22);
+		txtfield.setBounds(100, 42, 100, 22);
 		contentPane.add(txtfield);
 		txtfield.setColumns(10);
 		
@@ -41,11 +45,11 @@ public class AddCustomerWindow extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Firstname:");
-		lblNewLabel_1.setBounds(8, 80, 89, 16);
+		lblNewLabel_1.setBounds(8, 80, 75, 16);
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("Lastname:");
-		lblNewLabel_1_1.setBounds(8, 109, 89, 16);
+		lblNewLabel_1_1.setBounds(8, 106, 92, 22);
 		contentPane.add(lblNewLabel_1_1);
 		
 		JLabel lblNewLabel_1_2 = new JLabel("Age:");
@@ -55,19 +59,19 @@ public class AddCustomerWindow extends JFrame {
 		txtfield_1 = new JTextField();
 		txtfield_1.setText("firstname");
 		txtfield_1.setColumns(10);
-		txtfield_1.setBounds(87, 80, 100, 22);
+		txtfield_1.setBounds(100, 77, 100, 22);
 		contentPane.add(txtfield_1);
 		
 		txtLastname = new JTextField();
 		txtLastname.setText("lastname");
 		txtLastname.setColumns(10);
-		txtLastname.setBounds(87, 109, 100, 22);
+		txtLastname.setBounds(100, 106, 100, 22);
 		contentPane.add(txtLastname);
 		
 		textField_3 = new JTextField();
 		textField_3.setText("0");
 		textField_3.setColumns(10);
-		textField_3.setBounds(87, 138, 100, 22);
+		textField_3.setBounds(100, 135, 100, 22);
 		contentPane.add(textField_3);
 		
 		JButton btnNewButton = new JButton("Add Customer ");

@@ -1,9 +1,10 @@
+package logicLayer;
 
 public class SalesGraphFilterType extends SalesGraph implements FilterType {
 
 String type; 
 
-SalesGraphFilterType(String type)
+public SalesGraphFilterType(String type)
 {
 	super();
 	this.type=type; 

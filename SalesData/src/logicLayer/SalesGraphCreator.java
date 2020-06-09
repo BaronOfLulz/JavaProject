@@ -1,3 +1,4 @@
+package logicLayer;
 
 
 public class SalesGraphCreator

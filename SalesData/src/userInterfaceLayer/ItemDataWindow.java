@@ -1,3 +1,4 @@
+package userInterfaceLayer;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,6 +10,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+
+import dataLayer.SqlCon;
+import logicLayer.SnackItem;
 
 public class ItemDataWindow extends JFrame {
 

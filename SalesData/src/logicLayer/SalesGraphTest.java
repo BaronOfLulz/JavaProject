@@ -1,13 +1,14 @@
+package logicLayer;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
-class Testcase {
+class SalesGraphTest {
 
 	@Test
 	void test() {
-		int arrSales[] = {2,4,4,111};
+		
 		SalesGraph stats = new SalesGraphFilterFlavor("A"); 
 		stats.addItem(new SnackItem("A","A","A"),new Integer(2));
 		stats.addItem(new SnackItem("B","A","A"),new Integer(4));
@@ -20,9 +21,10 @@ class Testcase {
 		
 		SnackItem item = new SnackItem(); 
 		Integer in = new Integer(0); 
-		
+	
 		while(stats.itemsAmount() > 0)
 		{
+		
 			item = stats.getTopItem();
 			stats.popItem();
 			if(item.getFlavor().equals("A")== false)
@@ -43,8 +45,11 @@ class Testcase {
 		
 		stats.filter(); 
 		
+
+		
 		while(stats.itemsAmount() > 0)
 		{
+		
 			item = stats.getTopItem();
 			stats.popItem();
 			if(!item.getType().equals("A"))
