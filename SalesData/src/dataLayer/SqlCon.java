@@ -114,7 +114,7 @@ public class SqlCon
 	}
 	
 	
-	public void myConInsertCustomer(int id,String firstname,String lastname, int age) throws Exception
+	public void myConInsertCustomer(Customer cus) throws Exception
 	{
 		try
 		{
@@ -122,7 +122,7 @@ public class SqlCon
 		Connection con=DriverManager.getConnection(
 		"jdbc:mysql://localhost:3306/world?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root","root");
 		Statement stmt = con.createStatement();
-		stmt.executeUpdate("insert into snackbuyer(Id,FirstName,LastName,Age) Values("+Integer.toString(id)+",\""+firstname +"\",\""+lastname+"\","+Integer.toString(age)+");");
+		stmt.executeUpdate("insert into snackbuyer(Id,FirstName,LastName,Age) Values("+Integer.toString(cus.getId())+",\""+cus.getFirstname() +"\",\""+cus.getLastname()+"\","+Integer.toString(cus.getAge())+");");
 		
 		con.close();
 		
@@ -130,7 +130,7 @@ public class SqlCon
 		catch(Exception e) {throw e; }
 	}
 	
-	public void myConInsertProduct(String name,String flavor,String type) throws Exception
+	public void myConInsertProduct(SnackItem t) throws Exception
 	{
 		try
 		{
@@ -138,7 +138,7 @@ public class SqlCon
 		Connection con=DriverManager.getConnection(
 		"jdbc:mysql://localhost:3306/world?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root","root");
 		Statement stmt = con.createStatement();
-		stmt.executeUpdate("insert into snackitems(Name,Flavor,Type) values(\""+name+"\",\""+flavor+"\",\""+type+"\")");
+		stmt.executeUpdate("insert into snackitems(Name,Flavor,Type) values(\""+t.getName()+"\",\""+t.getFlavor()+"\",\""+t.getType()+"\")");
 		
 		con.close();
 		
@@ -182,7 +182,7 @@ public class SqlCon
 		}
 		catch(Exception e) {System.out.println(e);}
 	}
-	public void myConInsertPurchase(int id,String Snackname) throws Exception 
+	public void myConInsertPurchase(Purchase pur) throws Exception 
 	{
 		try
 		{
@@ -190,7 +190,7 @@ public class SqlCon
 			Connection con=DriverManager.getConnection(
 			"jdbc:mysql://localhost:3306/world?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root","root");
 			Statement stmt = con.createStatement();
-			stmt.executeUpdate("insert into snackbought values ("+id+",\""+Snackname+"\")");
+			stmt.executeUpdate("insert into snackbought values ("+pur.getID()+",\""+pur.getItem()+"\")");
 			
 		}
 		catch(Exception e) {throw e;}

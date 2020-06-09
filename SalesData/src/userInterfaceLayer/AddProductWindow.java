@@ -23,12 +23,12 @@ import java.awt.event.ActionEvent;
 import dataLayer.*;
 import logicLayer.*;
 
-
+import logicLayer.*;
 
 public class AddProductWindow extends JFrame {
 
 	
-	String type ="Food"; 
+	String type ="Drink"; 
 	String flavor="Salty"; 
 	
 	private JPanel contentPane;
@@ -104,7 +104,7 @@ public class AddProductWindow extends JFrame {
 						throw new Exception("Product name can't be empty"); 
 					}
 					
-					conn.myConInsertProduct(textField.getText(), flavor, type);
+					conn.myConInsertProduct(new SnackItem(textField.getText(),flavor,type));
 				}
 				catch (Exception e1)
 				{

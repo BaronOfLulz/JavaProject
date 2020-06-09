@@ -117,7 +117,7 @@ public class AddCustomerWindow extends JFrame {
 				 }
 				 
 				 SqlCon conn = SqlCon.getConnector(); 
-				 conn.myConInsertCustomer(Integer.parseInt(txtfield.getText()),  txtfield_1.getText(),txtLastname.getText(), Integer.parseInt(textField_3.getText()));
+				 conn.myConInsertCustomer(new Customer(Integer.parseInt(txtfield.getText()),  txtfield_1.getText(),txtLastname.getText(), Integer.parseInt(textField_3.getText())));
 			
 			}
 				catch(Exception exp) {JOptionPane.showMessageDialog(null, exp.getMessage(), exp.getMessage(), JOptionPane.INFORMATION_MESSAGE); }

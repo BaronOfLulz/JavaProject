@@ -122,7 +122,7 @@ public class AddPurchaseWindow extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				try {
-					conn.myConInsertPurchase(customerIds.get(i),productNames.get(j));
+					conn.myConInsertPurchase(new Purchase(customerIds.get(i).intValue(),productNames.get(j)));
 				} catch (Exception e1) 
 				{
 					JOptionPane.showMessageDialog(null, e1.getMessage(), e1.getMessage(), JOptionPane.INFORMATION_MESSAGE);
