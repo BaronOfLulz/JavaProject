@@ -11,8 +11,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import buisnessLogicLayer.SnackItem;
 import dataLayer.SqlCon;
-import logicLayer.SnackItem;
 
 public class ItemDataWindow extends JFrame {
 

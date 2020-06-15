@@ -1,12 +1,14 @@
 
 package dataLayer;
-import logicLayer.*; 
 import java.sql.*;
-import java.util.Stack; 
+import java.util.Stack;
+
+import buisnessLogicLayer.*; 
 
 
 public class SqlCon 
 {
+/* Private constructor for singleton */	
 	
 	private SqlCon()
 	{
@@ -14,7 +16,11 @@ public class SqlCon
 	}
 	
 	
-	static SqlCon instance = null; 
+	static SqlCon instance = null;
+	
+	
+// method that only returns one instance 
+	
 	
 	static public SqlCon getConnector()
 	{

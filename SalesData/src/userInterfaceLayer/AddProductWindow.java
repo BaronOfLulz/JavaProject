@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionListener;
 
+import buisnessLogicLayer.*;
 import dataLayer.SqlCon;
 
 import javax.swing.event.ListSelectionEvent;
@@ -21,9 +22,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 import dataLayer.*;
-import logicLayer.*;
-
-import logicLayer.*;
 
 public class AddProductWindow extends JFrame {
 

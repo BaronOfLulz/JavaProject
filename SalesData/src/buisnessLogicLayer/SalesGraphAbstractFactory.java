@@ -1,10 +1,10 @@
-package logicLayer;
+package buisnessLogicLayer;
 
 
-public class SalesGraphCreator
+public class SalesGraphAbstractFactory
 {
 	
-	public SalesGraphCreator() { }
+	public SalesGraphAbstractFactory() { }
 	
 	public static SalesGraph getSalesGraph(SalesGraphType t,String type,String flavor) 
 	{

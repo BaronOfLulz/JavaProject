@@ -1,4 +1,4 @@
-package logicLayer;
+package buisnessLogicLayer;
 
 public class SalesGraphFilterFlavor extends SalesGraph implements FilterFlavor
 {

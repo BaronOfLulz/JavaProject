@@ -1,4 +1,4 @@
-package logicLayer;
+package buisnessLogicLayer;
 
 public class SalesGraphRegular extends SalesGraph {
 

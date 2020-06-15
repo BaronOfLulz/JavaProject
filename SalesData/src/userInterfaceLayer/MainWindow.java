@@ -8,8 +8,6 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JList;
-import javax.swing.JMenuItem;
-import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JPopupMenu;
 import java.awt.Component;
 import java.awt.event.MouseAdapter;
@@ -19,11 +17,11 @@ import javax.swing.JRadioButton;
 import javax.swing.JTree;
 import javax.swing.event.ChangeListener;
 
+import buisnessLogicLayer.SalesGraph;
+import buisnessLogicLayer.SalesGraphAbstractFactory;
+import buisnessLogicLayer.SalesGraphType;
+import buisnessLogicLayer.SnackItem;
 import dataLayer.SqlCon;
-import logicLayer.SalesGraph;
-import logicLayer.SalesGraphCreator;
-import logicLayer.SalesGraphType;
-import logicLayer.SnackItem;
 
 import javax.swing.event.ChangeEvent;
 import javax.swing.JLabel;
@@ -83,15 +81,15 @@ public class MainWindow {
 		        
 		        if(filterByType)
 		        {
-		        	stats = SalesGraphCreator.getSalesGraph(SalesGraphType.TYPE,type,flavor);
+		        	stats = SalesGraphAbstractFactory.getSalesGraph(SalesGraphType.TYPE,type,flavor);
 		        }
 		        else if(filterByFlavor)
 		        {
-		        	stats =  SalesGraphCreator.getSalesGraph(SalesGraphType.FLAVOR,type,flavor);	
+		        	stats =  SalesGraphAbstractFactory.getSalesGraph(SalesGraphType.FLAVOR,type,flavor);	
 		        }
 		        else
 		        {
-		        	stats =  SalesGraphCreator.getSalesGraph(SalesGraphType.REGULAR,type,flavor);    
+		        	stats =  SalesGraphAbstractFactory.getSalesGraph(SalesGraphType.REGULAR,type,flavor);    
 		        }
 		        
 		        SqlCon connect = SqlCon.getConnector(); 

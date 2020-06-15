@@ -7,8 +7,8 @@ import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.RowSpec;
 
+import buisnessLogicLayer.*;
 import dataLayer.SqlCon;
-import logicLayer.Customer;
 
 import java.awt.GridLayout;
 import javax.swing.JButton;
@@ -19,7 +19,6 @@ import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import dataLayer.*;
-import logicLayer.*;
 public class CustomerDataWindow extends JFrame {
 
 	private JPanel contentPane;
