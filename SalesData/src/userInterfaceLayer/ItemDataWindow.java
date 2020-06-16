@@ -12,7 +12,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import buisnessLogicLayer.SnackItem;
-import dataLayer.SqlCon;
+import dataLayer.SQLConnectorSingleton;
 
 public class ItemDataWindow extends JFrame {
 
@@ -34,7 +34,7 @@ public class ItemDataWindow extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		Stack<SnackItem> items = new Stack<SnackItem>(); 
-		SqlCon con = SqlCon.getConnector();
+		SQLConnectorSingleton con = SQLConnectorSingleton.getConnector();
 		con.myConProductNoFilter(items);
 		
 		

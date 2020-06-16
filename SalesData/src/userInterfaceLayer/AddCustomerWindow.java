@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import buisnessLogicLayer.*;
-import dataLayer.SqlCon;
+import dataLayer.SQLConnectorSingleton;
 
 import javax.swing.JTextField;
 import javax.swing.JLabel;
@@ -116,7 +116,7 @@ public class AddCustomerWindow extends JFrame {
 					 throw new Exception("none of the fields can be empty");
 				 }
 				 
-				 SqlCon conn = SqlCon.getConnector(); 
+				 SQLConnectorSingleton conn = SQLConnectorSingleton.getConnector(); 
 				 conn.myConInsertCustomer(new Customer(Integer.parseInt(txtfield.getText()),  txtfield_1.getText(),txtLastname.getText(), Integer.parseInt(textField_3.getText())));
 			
 			}

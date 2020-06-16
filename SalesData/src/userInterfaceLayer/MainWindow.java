@@ -21,7 +21,7 @@ import buisnessLogicLayer.SalesGraph;
 import buisnessLogicLayer.SalesGraphAbstractFactory;
 import buisnessLogicLayer.SalesGraphType;
 import buisnessLogicLayer.SnackItem;
-import dataLayer.SqlCon;
+import dataLayer.SQLConnectorSingleton;
 
 import javax.swing.event.ChangeEvent;
 import javax.swing.JLabel;
@@ -92,7 +92,7 @@ public class MainWindow {
 		        	stats =  SalesGraphAbstractFactory.getSalesGraph(SalesGraphType.REGULAR,type,flavor);    
 		        }
 		        
-		        SqlCon connect = SqlCon.getConnector(); 
+		        SQLConnectorSingleton connect = SQLConnectorSingleton.getConnector(); 
 		        
 		        if(!filterByAge)
 		        {

@@ -6,27 +6,27 @@ import java.util.Stack;
 import buisnessLogicLayer.*; 
 
 
-public class SqlCon 
+public class SQLConnectorSingleton 
 {
 /* Private constructor for singleton */	
 	
-	private SqlCon()
+	private SQLConnectorSingleton()
 	{
 		
 	}
 	
 	
-	static SqlCon instance = null;
+	static SQLConnectorSingleton instance = null;
 	
 	
 // method that only returns one instance 
 	
 	
-	static public SqlCon getConnector()
+	static public SQLConnectorSingleton getConnector()
 	{
 		if(instance == null)
 		{
-			instance = new SqlCon();
+			instance = new SQLConnectorSingleton();
 		}
 		
 		return instance; 

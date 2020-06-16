@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import buisnessLogicLayer.*;
-import dataLayer.SqlCon;
+import dataLayer.SQLConnectorSingleton;
 
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -31,7 +31,7 @@ public class AddPurchaseWindow extends JFrame {
 	public AddPurchaseWindow() {
 		Stack<Integer> customerIds = new Stack<Integer>(); 
 		Stack<String> productNames = new Stack<String>();
-		SqlCon conn = SqlCon.getConnector(); 
+		SQLConnectorSingleton conn = SQLConnectorSingleton.getConnector(); 
 		conn.myConGetProductNames(productNames);
 		conn.myConGetCustomerId(customerIds);
 		

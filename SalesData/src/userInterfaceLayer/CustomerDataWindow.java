@@ -8,7 +8,7 @@ import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.RowSpec;
 
 import buisnessLogicLayer.*;
-import dataLayer.SqlCon;
+import dataLayer.SQLConnectorSingleton;
 
 import java.awt.GridLayout;
 import javax.swing.JButton;
@@ -40,7 +40,7 @@ public class CustomerDataWindow extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		Stack<Customer> customers = new Stack<Customer>(); 
-		SqlCon con = SqlCon.getConnector();
+		SQLConnectorSingleton con = SQLConnectorSingleton.getConnector();
 		con.myConCustomerDataNoAge(customers);
 		
 		

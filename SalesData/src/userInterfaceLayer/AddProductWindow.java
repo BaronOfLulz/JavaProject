@@ -11,7 +11,7 @@ import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionListener;
 
 import buisnessLogicLayer.*;
-import dataLayer.SqlCon;
+import dataLayer.SQLConnectorSingleton;
 
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.JScrollPane;
@@ -94,7 +94,7 @@ public class AddProductWindow extends JFrame {
 		JButton btnNewButton = new JButton("Add Item ");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				SqlCon conn = SqlCon.getConnector(); 
+				SQLConnectorSingleton conn = SQLConnectorSingleton.getConnector(); 
 				try 
 				{
 					if(textField.getText().length() < 1)
